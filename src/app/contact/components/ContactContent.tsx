@@ -10,6 +10,10 @@ const CONTACT_EMAIL = 'digiinfusion.contact@gmail.com';
 const CONTACT_PHONE_DISPLAY = '+91 89281 66954';
 const CONTACT_PHONE_HREF = 'tel:+918928166954';
 
+// Web3Forms access key (safe to use in browser code; it can only send to your email)
+const WEB3FORMS_KEY =
+  process.env.NEXT_PUBLIC_WEB3FORMS_KEY || 'e58e77be-9291-439c-aedb-22fc066ee1f3';
+
 // Dummy links: replace with your real profile URLs
 const socialLinks = [
   {
@@ -30,7 +34,7 @@ const socialLinks = [
   },
   {
     label: 'LinkedIn',
-    href: 'https://www.linkedin.com/company/digiinfusion',
+    href: 'https://www.linkedin.com/company/digi-infusion',
     icon: (
       <>
         <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
@@ -66,6 +70,8 @@ export default function ContactContent() {
   const [errors, setErrors] = useState<FormErrors>({});
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
+  const [botcheck, setBotcheck] = useState(false);
 
   const validate = (): FormErrors => {
     const newErrors: FormErrors = {};
@@ -96,10 +102,46 @@ export default function ContactContent() {
       setErrors(validationErrors);
       return;
     }
+
     setIsSubmitting(true);
-    await new Promise((resolve) => setTimeout(resolve, 1200));
-    setIsSubmitting(false);
-    setSubmitted(true);
+    setSubmitError('');
+
+    try {
+      const serviceTitle =
+        services.find((s) => s.slug === formData.service)?.title || 'Not specified';
+
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_KEY,
+          subject: `New enquiry from ${formData.name.trim()}`,
+          from_name: 'Digi InFusion website',
+          name: formData.name.trim(),
+          email: formData.email.trim(),
+          phone: formData.phone.trim() || 'Not provided',
+          service: serviceTitle,
+          message: formData.message.trim(),
+          botcheck,
+        }),
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        setSubmitted(true);
+      } else {
+        setSubmitError(
+          `Something went wrong. Please try again or email us at ${CONTACT_EMAIL}.`
+        );
+      }
+    } catch {
+      setSubmitError(
+        `Something went wrong. Please check your connection and try again, or email us at ${CONTACT_EMAIL}.`
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -138,7 +180,11 @@ export default function ContactContent() {
             <div className="lg:col-span-7">
               <SectionReveal>
                 {submitted ? (
-                  <div className="bg-cream-surface border border-dove rounded-[24px] p-8 md:p-10 text-center shadow-[0_0_0_1px_rgba(10,10,10,0.02)]">
+                  <div
+                    className="bg-cream-surface border border-dove rounded-[24px] p-8 md:p-10 text-center shadow-[0_0_0_1px_rgba(10,10,10,0.02)]"
+                    role="status"
+                    aria-live="polite"
+                  >
                     <div className="w-12 h-12 bg-sand rounded-full flex items-center justify-center mx-auto mb-5">
                       <Icon name="CheckIcon" size={22} className="text-jet-ink" />
                     </div>
@@ -149,13 +195,13 @@ export default function ContactContent() {
                       Message received
                     </h2>
                     <p className="text-fog text-base leading-relaxed mb-6 max-w-sm mx-auto">
-                      Thanks, {formData.name.split(' ')[0]}. Your message has been validated locally
-                      in this browser. To receive submissions, connect your preferred form endpoint
-                      or email service in your environment configuration.
+                      Thanks, {formData.name.trim().split(' ')[0]}. We&apos;ve received your
+                      message and will reply within one business day.
                     </p>
                     <button
                       onClick={() => {
                         setSubmitted(false);
+                        setSubmitError('');
                         setFormData({ name: '', email: '', phone: '', service: '', message: '' });
                       }}
                       className="btn-ghost text-sm"
@@ -169,6 +215,18 @@ export default function ContactContent() {
                     noValidate
                     className="flex flex-col gap-5 border border-dove rounded-[24px] bg-cream-surface p-6 md:p-8 shadow-[0_0_0_1px_rgba(10,10,10,0.02)]"
                   >
+                    {/* Spam trap: hidden from people, bots tend to tick it */}
+                    <input
+                      type="checkbox"
+                      name="botcheck"
+                      checked={botcheck}
+                      onChange={(e) => setBotcheck(e.target.checked)}
+                      className="hidden"
+                      tabIndex={-1}
+                      autoComplete="off"
+                      aria-hidden="true"
+                    />
+
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div className="flex flex-col gap-1.5">
                         <label htmlFor="name" className="text-jet-ink text-sm font-medium">
@@ -258,6 +316,12 @@ export default function ContactContent() {
                       />
                       {errors.message && <p className="text-ember text-xs">{errors.message}</p>}
                     </div>
+
+                    {submitError && (
+                      <p className="text-ember text-sm" role="alert">
+                        {submitError}
+                      </p>
+                    )}
 
                     <div className="flex flex-col sm:flex-row sm:items-center gap-4 pt-2">
                       <button

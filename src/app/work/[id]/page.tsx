@@ -1,4 +1,5 @@
-import React from 'react';
+import React from 'react'
+import { site } from '@/config/site';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Header from '@/components/Header';
@@ -21,8 +22,32 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${item.title} | Digi InFusion`,
     description: item.overview || item.result,
-  };
-}
+    openGraph: {
+      title: `${item.title} | Digi InFusion`,
+      description: item.overview || item.result,
+      images: [
+        {
+          url: `${site.url}${item.image}`,
+          width: 1200,
+          height: 630,
+          alt: item.alt || item.title,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${item.title} | Digi InFusion`,
+      description: item.overview || item.result,
+      images: [
+        {
+          url: `${site.url}${item.image}`,
+          width: 1200,
+          height: 630,
+        },
+      ],
+    },
+  }
+};
 
 export default async function CaseStudyPage({ params }: Props) {
   const { id } = await params;

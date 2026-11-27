@@ -1,4 +1,5 @@
-import React from 'react';
+import React from 'react'
+import { site } from '@/config/site';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import Header from '@/components/Header';
@@ -21,8 +22,31 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: `${service.title} | Digi InFusion`,
     description: service.valueProp,
-  };
-}
+    openGraph: {
+      title: `${service.title} | Digi InFusion`,
+      description: service.valueProp,
+      images: [
+        {
+          url: `${site.url}/opengraph-image`,
+          width: 1200,
+          height: 630,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${service.title} | Digi InFusion`,
+      description: service.valueProp,
+      images: [
+        {
+          url: `${site.url}/opengraph-image`,
+          width: 1200,
+          height: 630,
+        },
+      ],
+    },
+  }
+};
 
 export default async function ServiceDetailPage({ params }: PageProps) {
   const { slug } = await params;

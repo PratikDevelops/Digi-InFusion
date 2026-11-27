@@ -2,6 +2,7 @@ import React from 'react';
 import type { Metadata, Viewport } from 'next';
 import { DM_Sans, JetBrains_Mono } from 'next/font/google';
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import { site } from '@/config/site';
 import '../styles/tailwind.css';
 
 const dmSans = DM_Sans({
@@ -18,19 +19,65 @@ const jetbrainsMono = JetBrains_Mono({
   display: 'swap',
 });
 
+const defaultTitle = 'Digi InFusion | Digital Agency for Web, Marketing & Video';
+
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
+  themeColor: '#183b32',
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'),
-  title: 'Digi InFusion | Full-Service Digital Agency',
-  description: 'Digi InFusion helps ambitious brands grow through strategy, design, and digital experiences.',
-  icons: {
-    icon: [
-      { url: '/favicon.ico', type: 'image/x-icon' }
+  metadataBase: new URL(site.url),
+  title: defaultTitle,
+  description: site.description,
+  applicationName: 'Digi InFusion',
+  authors: [{ name: 'Digi InFusion' }],
+  creator: 'Digi InFusion',
+  publisher: 'Digi InFusion',
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    type: 'website',
+    siteName: site.name,
+    locale: 'en',
+    url: site.url,
+    title: defaultTitle,
+    description: site.description,
+    images: [
+      {
+        url: `${site.url}/assets/images/app_logo.png`,
+        width: 1200,
+        height: 630,
+        alt: 'Digi InFusion logo',
+      },
     ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: defaultTitle,
+    description: site.description,
+    images: [
+      {
+        url: `${site.url}/assets/images/app_logo.png`,
+        width: 1200,
+        height: 630,
+      },
+    ],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+      'max-video-preview': -1,
+    },
+  },
+  icons: {
+    icon: [{ url: '/favicon.ico', type: 'image/x-icon' }],
+    apple: '/favicon.ico',
   },
 };
 
