@@ -13,14 +13,14 @@ const categoryLabels: Record<string, string> = {
 };
 
 const iconMap: Record<string, any> = {
-  'CodeBracketIcon': 'CodeBracketIcon',
-  'DevicePhoneMobileIcon': 'DevicePhoneMobileIcon',
-  'MagnifyingGlassIcon': 'MagnifyingGlassIcon',
-  'ChatBubbleLeftRightIcon': 'ChatBubbleLeftRightIcon',
-  'CursorArrowRaysIcon': 'CursorArrowRaysIcon',
-  'BoltIcon': 'BoltIcon',
-  'FilmIcon': 'FilmIcon',
-  'VideoCameraIcon': 'VideoCameraIcon',
+  CodeBracketIcon: 'CodeBracketIcon',
+  DevicePhoneMobileIcon: 'DevicePhoneMobileIcon',
+  MagnifyingGlassIcon: 'MagnifyingGlassIcon',
+  ChatBubbleLeftRightIcon: 'ChatBubbleLeftRightIcon',
+  CursorArrowRaysIcon: 'CursorArrowRaysIcon',
+  BoltIcon: 'BoltIcon',
+  FilmIcon: 'FilmIcon',
+  VideoCameraIcon: 'VideoCameraIcon',
 };
 
 export default function ServicesStrip() {
@@ -31,8 +31,17 @@ export default function ServicesStrip() {
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12">
             <div>
               <p className="section-label mb-3">What we do</p>
-              <h2 className="font-display font-normal text-jet-ink" style={{ fontSize: 'clamp(1.75rem, 4vw, 2.5rem)', letterSpacing: '-0.025em', lineHeight: 1.1 }}>
-                Eight services.<br />One team.
+              <h2
+                className="font-display font-normal text-jet-ink"
+                style={{
+                  fontSize: 'var(--text-section-heading)',
+                  letterSpacing: '-0.025em',
+                  lineHeight: 1.1,
+                }}
+              >
+                Eight services.
+                <br />
+                One team.
               </h2>
             </div>
             <Link href="/services" className="btn-ghost text-sm shrink-0">
@@ -55,12 +64,18 @@ export default function ServicesStrip() {
                     />
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-jet-ink font-medium text-base mb-2 leading-tight">{service.title}</h3>
+                    <h3 className="text-jet-ink font-medium text-base mb-2 leading-tight">
+                      {service.title}
+                    </h3>
                     <p className="text-fog text-sm leading-relaxed">{service.shortDescription}</p>
                   </div>
                   <div className="flex items-center gap-1 text-fog text-sm font-medium group-hover:text-jet-ink transition-colors duration-200">
                     Learn more
-                    <Icon name="ArrowRightIcon" size={13} className="transition-transform duration-200 group-hover:translate-x-0.5" />
+                    <Icon
+                      name="ArrowRightIcon"
+                      size={13}
+                      className="transition-transform duration-200 group-hover:translate-x-0.5"
+                    />
                   </div>
                 </div>
               </Link>

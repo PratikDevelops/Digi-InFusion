@@ -65,7 +65,7 @@ export default function WorkContent() {
             <h1
               className="font-display font-normal text-jet-ink mb-6"
               style={{
-                fontSize: 'clamp(2.5rem, 6vw, 4rem)',
+                fontSize: 'var(--text-page-heading)',
                 letterSpacing: '-0.025em',
                 lineHeight: 1.05,
               }}
@@ -87,7 +87,7 @@ export default function WorkContent() {
       {/* Filter bar */}
       <section className="sticky top-16 z-30 bg-paper/90 backdrop-blur-[12px] border-b border-dove px-6 py-3">
         <div className="max-w-page mx-auto">
-          <div className="flex items-center gap-2 overflow-x-auto scrollbar-hide">
+          <div className="flex flex-wrap items-center gap-2">
             {filterTabs.map((tab) => (
               <button
                 key={tab.value}

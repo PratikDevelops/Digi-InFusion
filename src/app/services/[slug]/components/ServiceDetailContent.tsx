@@ -45,15 +45,17 @@ function FAQItem({ question, answer, index }: FAQItemProps) {
             {question}
           </span>
           <span
-            className={`shrink-0 w-7 h-7 rounded-full border border-dove flex items-center justify-center transition-all duration-300 ${open ? 'bg-jet-ink border-jet-ink rotate-45' : 'bg-paper'
-              }`}
+            className={`shrink-0 w-7 h-7 rounded-full border border-dove flex items-center justify-center transition-all duration-300 ${
+              open ? 'bg-jet-ink border-jet-ink rotate-45' : 'bg-paper'
+            }`}
           >
             <Icon name="PlusIcon" size={14} className={open ? 'text-paper' : 'text-jet-ink'} />
           </span>
         </button>
         <div
-          className={`overflow-hidden transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${open ? 'max-h-96 pb-5' : 'max-h-0'
-            }`}
+          className={`overflow-hidden transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+            open ? 'max-h-96 pb-5' : 'max-h-0'
+          }`}
         >
           <p className="text-steel text-base leading-relaxed pr-10">{answer}</p>
         </div>
@@ -134,7 +136,7 @@ export default function ServiceDetailContent({ service }: ServiceDetailContentPr
       {/* What's Included + Process — side by side on desktop */}
       <section className="py-20 px-6 bg-cream-surface border-t border-dove">
         <div className="max-w-page mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-12 lg:gap-16">
             {/* What's Included */}
             <div>
               <SectionReveal>
@@ -142,7 +144,7 @@ export default function ServiceDetailContent({ service }: ServiceDetailContentPr
                 <h2
                   className="font-display font-normal text-jet-ink mb-8"
                   style={{
-                    fontSize: 'clamp(1.5rem, 3vw, 2rem)',
+                    fontSize: 'var(--text-detail-subheading)',
                     letterSpacing: '-0.025em',
                     lineHeight: 1.1,
                   }}
@@ -171,7 +173,7 @@ export default function ServiceDetailContent({ service }: ServiceDetailContentPr
                 <h2
                   className="font-display font-normal text-jet-ink mb-8"
                   style={{
-                    fontSize: 'clamp(1.5rem, 3vw, 2rem)',
+                    fontSize: 'var(--text-detail-subheading)',
                     letterSpacing: '-0.025em',
                     lineHeight: 1.1,
                   }}
@@ -216,7 +218,7 @@ export default function ServiceDetailContent({ service }: ServiceDetailContentPr
                   <h2
                     className="font-display font-normal text-jet-ink"
                     style={{
-                      fontSize: 'clamp(1.5rem, 3vw, 2rem)',
+                      fontSize: 'var(--text-detail-subheading)',
                       letterSpacing: '-0.025em',
                       lineHeight: 1.1,
                     }}
@@ -273,14 +275,14 @@ export default function ServiceDetailContent({ service }: ServiceDetailContentPr
       {/* FAQ */}
       <section className="py-20 px-6 bg-sand border-t border-dove">
         <div className="max-w-page mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-12 lg:gap-20">
+          <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] lg:grid-cols-[1fr_2fr] gap-12 lg:gap-20">
             <SectionReveal>
               <div className="lg:sticky lg:top-28">
                 <p className="section-label mb-3">FAQ</p>
                 <h2
                   className="font-display font-normal text-jet-ink mb-4"
                   style={{
-                    fontSize: 'clamp(1.5rem, 3vw, 2rem)',
+                    fontSize: 'var(--text-detail-subheading)',
                     letterSpacing: '-0.025em',
                     lineHeight: 1.1,
                   }}
@@ -316,7 +318,7 @@ export default function ServiceDetailContent({ service }: ServiceDetailContentPr
                 <h2
                   className="font-display font-normal text-paper mb-4"
                   style={{
-                    fontSize: 'clamp(1.75rem, 4vw, 3rem)',
+                    fontSize: 'var(--text-cta-heading)',
                     letterSpacing: '-0.025em',
                     lineHeight: 1.05,
                   }}

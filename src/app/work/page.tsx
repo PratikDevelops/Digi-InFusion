@@ -5,8 +5,8 @@ import Footer from '@/components/Footer';
 import WorkContent from './components/WorkContent';
 
 export const metadata: Metadata = {
-    title: 'Work & Portfolio | DigitalBroom',
-    description: 'Explore DigitalBroom work and selected projects across strategy, design, digital experiences, and growth-focused delivery.',
+    title: 'Work & Portfolio | Digi InFusion',
+    description: 'Explore Digi InFusion work and selected projects across strategy, design, digital experiences, and growth-focused delivery.',
 };
 
 export default function WorkPage() {

@@ -44,7 +44,7 @@ export default function ProcessSection() {
             <h2
               className="font-display font-normal text-jet-ink"
               style={{
-                fontSize: 'clamp(1.75rem, 4vw, 2.5rem)',
+                fontSize: 'var(--text-section-heading)',
                 letterSpacing: '-0.025em',
                 lineHeight: 1.1,
               }}
@@ -54,7 +54,7 @@ export default function ProcessSection() {
           </div>
         </SectionReveal>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-3">
           {steps?.map((step, i) => (
             <SectionReveal key={step?.number} delay={i * 80}>
               <div

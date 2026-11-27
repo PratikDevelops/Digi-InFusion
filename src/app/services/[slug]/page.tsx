@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const service = services.find((s) => s.slug === slug);
   if (!service) return {};
   return {
-    title: `${service.title} | DigitalBroom`,
+    title: `${service.title} | Digi InFusion`,
     description: service.valueProp,
   };
 }

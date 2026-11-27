@@ -7,9 +7,9 @@ import SectionReveal from '@/components/SectionReveal';
 
 const faqs = [
   {
-    question: 'What types of projects does DigitalBroom support?',
+    question: 'What types of projects does Digi InFusion support?',
     answer:
-      'DigitalBroom supports digital projects focused on strategy, design, web experiences, digital growth, and thoughtful execution for ambitious businesses.',
+      'Digi InFusion supports digital projects focused on strategy, design, web experiences, digital growth, and thoughtful execution for ambitious businesses.',
   },
   {
     question: 'How do we start a project?',
@@ -41,7 +41,7 @@ export default function FAQSection() {
               <h2
                 className="font-display font-normal text-jet-ink"
                 style={{
-                  fontSize: 'clamp(1.75rem, 4vw, 2.5rem)',
+                  fontSize: 'var(--text-section-heading)',
                   letterSpacing: '-0.025em',
                   lineHeight: 1.1,
                 }}

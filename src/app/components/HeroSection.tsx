@@ -92,7 +92,14 @@ export default function HeroSection() {
         </div>
 
         {/* Massive headline */}
-        <h1 className="font-display font-normal text-jet-ink mb-10" style={{ fontSize: 'clamp(2.8rem, 9vw, 6rem)', lineHeight: 1.0, letterSpacing: '-0.025em' }}>
+        <h1
+          className="font-display font-normal text-jet-ink mb-10"
+          style={{
+            fontSize: 'clamp(2.8rem, 9vw, 6rem)',
+            lineHeight: 1.0,
+            letterSpacing: '-0.025em',
+          }}
+        >
           <span className="line-reveal block">
             <span ref={line1Ref}>We design, build,</span>
           </span>
@@ -100,7 +107,9 @@ export default function HeroSection() {
             <span ref={line2Ref}>grow, and produce</span>
           </span>
           <span className="line-reveal block">
-            <span ref={line3Ref} className="text-fog">for ambitious brands.</span>
+            <span ref={line3Ref} className="text-fog">
+              for ambitious brands.
+            </span>
           </span>
         </h1>
 
@@ -108,10 +117,14 @@ export default function HeroSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end border-t border-dove pt-8 mt-8">
           <div ref={subRef} className="lg:col-span-6">
             <p className="text-steel text-lg leading-relaxed max-w-lg">
-              DigitalBroom is a newly established digital agency focused on thoughtful strategy, digital experiences, and growth-minded execution for ambitious businesses.
+              We partner with ambitious brands to build digital experiences that drive growth,
+              digital experiences, and growth-minded execution for ambitious businesses.
             </p>
           </div>
-          <div ref={ctaRef} className="lg:col-span-4 lg:col-start-9 flex flex-col sm:flex-row lg:flex-col xl:flex-row gap-3">
+          <div
+            ref={ctaRef}
+            className="lg:col-span-4 lg:col-start-9 flex flex-col sm:flex-row gap-3"
+          >
             <Link href="/contact" className="btn-primary">
               Book a free consultation
               <Icon name="ArrowRightIcon" size={14} />

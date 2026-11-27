@@ -6,6 +6,41 @@ import Icon from '@/components/ui/AppIcon';
 import SectionReveal from '@/components/SectionReveal';
 import { services } from '@/data/services';
 
+const CONTACT_EMAIL = 'digiinfusion.contact@gmail.com';
+const CONTACT_PHONE_DISPLAY = '+91 89281 66954';
+const CONTACT_PHONE_HREF = 'tel:+918928166954';
+
+// Dummy links: replace with your real profile URLs
+const socialLinks = [
+  {
+    label: 'Instagram',
+    href: 'https://www.instagram.com/digiinfusion',
+    icon: (
+      <>
+        <rect x="3" y="3" width="18" height="18" rx="5" />
+        <circle cx="12" cy="12" r="4" />
+        <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" />
+      </>
+    ),
+  },
+  {
+    label: 'Facebook',
+    href: 'https://www.facebook.com/digiinfusion',
+    icon: <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />,
+  },
+  {
+    label: 'LinkedIn',
+    href: 'https://www.linkedin.com/company/digiinfusion',
+    icon: (
+      <>
+        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+        <rect x="2" y="9" width="4" height="12" />
+        <circle cx="4" cy="4" r="2" />
+      </>
+    ),
+  },
+];
+
 interface FormData {
   name: string;
   email: string;
@@ -78,7 +113,7 @@ export default function ContactContent() {
             <h1
               className="font-display font-normal text-jet-ink mb-6"
               style={{
-                fontSize: 'clamp(2.5rem, 6vw, 4rem)',
+                fontSize: 'var(--text-page-heading)',
                 letterSpacing: '-0.025em',
                 lineHeight: 1.05,
               }}
@@ -102,7 +137,6 @@ export default function ContactContent() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
             <div className="lg:col-span-7">
               <SectionReveal>
-                `
                 {submitted ? (
                   <div className="bg-cream-surface border border-dove rounded-[24px] p-8 md:p-10 text-center shadow-[0_0_0_1px_rgba(10,10,10,0.02)]">
                     <div className="w-12 h-12 bg-sand rounded-full flex items-center justify-center mx-auto mb-5">
@@ -170,6 +204,7 @@ export default function ContactContent() {
                         {errors.email && <p className="text-ember text-xs">{errors.email}</p>}
                       </div>
                     </div>
+
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div className="flex flex-col gap-1.5">
                         <label htmlFor="phone" className="text-jet-ink text-sm font-medium">
@@ -181,7 +216,7 @@ export default function ContactContent() {
                           type="tel"
                           value={formData.phone}
                           onChange={handleChange}
-                          placeholder="+1 (555) 000-0000"
+                          placeholder="+91 98765 43210"
                           className="input-field"
                           autoComplete="tel"
                         />
@@ -207,7 +242,7 @@ export default function ContactContent() {
                         </select>
                       </div>
                     </div>
-                    `
+
                     <div className="flex flex-col gap-1.5">
                       <label htmlFor="message" className="text-jet-ink text-sm font-medium">
                         Tell us about your project <span className="text-ember">*</span>
@@ -223,6 +258,7 @@ export default function ContactContent() {
                       />
                       {errors.message && <p className="text-ember text-xs">{errors.message}</p>}
                     </div>
+
                     <div className="flex flex-col sm:flex-row sm:items-center gap-4 pt-2">
                       <button
                         type="submit"
@@ -283,6 +319,104 @@ export default function ContactContent() {
                         <span>{item}</span>
                       </div>
                     ))}
+                  </div>
+                </div>
+              </SectionReveal>
+
+              {/* Direct contact details */}
+              <SectionReveal delay={250}>
+                <div className="mt-4 bg-cream-surface border border-dove rounded-[24px] p-7 md:p-8 shadow-[0_0_0_1px_rgba(10,10,10,0.02)]">
+                  <p className="section-label mb-5">Contact details</p>
+
+                  <ul className="flex flex-col gap-3">
+                    <li>
+                      <a
+                        href={`mailto:${CONTACT_EMAIL}`}
+                        className="group flex items-center gap-4 rounded-2xl bg-paper border border-dove px-4 py-3.5 transition-all duration-200 hover:shadow-subtle"
+                      >
+                        <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-dove bg-cream-surface text-jet-ink">
+                          <svg
+                            width="18"
+                            height="18"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="1.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            aria-hidden="true"
+                          >
+                            <path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z" />
+                            <polyline points="22,6 12,13 2,6" />
+                          </svg>
+                        </span>
+                        <span className="min-w-0">
+                          <span className="block text-fog text-xs mb-0.5">Email</span>
+                          <span className="block text-jet-ink text-sm font-medium break-all">
+                            {CONTACT_EMAIL}
+                          </span>
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href={CONTACT_PHONE_HREF}
+                        className="group flex items-center gap-4 rounded-2xl bg-paper border border-dove px-4 py-3.5 transition-all duration-200 hover:shadow-subtle"
+                      >
+                        <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-dove bg-cream-surface text-jet-ink">
+                          <svg
+                            width="18"
+                            height="18"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="1.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            aria-hidden="true"
+                          >
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                          </svg>
+                        </span>
+                        <span className="min-w-0">
+                          <span className="block text-fog text-xs mb-0.5">Phone</span>
+                          <span className="block text-jet-ink text-sm font-medium">
+                            {CONTACT_PHONE_DISPLAY}
+                          </span>
+                        </span>
+                      </a>
+                    </li>
+                  </ul>
+
+                  <div className="mt-6 pt-6 border-t border-dove">
+                    <p className="text-fog text-xs mb-4">Follow us</p>
+                    <ul className="flex items-center gap-3">
+                      {socialLinks.map((s) => (
+                        <li key={s.label}>
+                          <a
+                            href={s.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label={s.label}
+                            className="flex h-11 w-11 items-center justify-center rounded-full border border-dove bg-paper text-jet-ink transition-all duration-200 hover:shadow-subtle"
+                          >
+                            <svg
+                              width="18"
+                              height="18"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              strokeWidth="1.5"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              aria-hidden="true"
+                            >
+                              {s.icon}
+                            </svg>
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 </div>
               </SectionReveal>

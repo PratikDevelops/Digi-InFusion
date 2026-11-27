@@ -12,11 +12,11 @@ import FAQSection from './components/FAQSection';
 import CTASection from './components/CTASection';
 
 export const metadata: Metadata = {
-  title: 'DigitalBroom | Digital Agency for Ambitious Brands',
-  description: 'DigitalBroom is a newly established digital agency helping businesses with strategy, design, development, and growth-focused digital experiences.',
+  title: 'Digi InFusion | Full-Service Digital Agency',
+  description: 'Digi InFusion helps ambitious brands grow through strategy, design, and digital experiences.',
   openGraph: {
-    title: 'DigitalBroom | Digital Agency for Ambitious Brands',
-    description: 'A newly established digital agency focused on strategy, design, digital experiences, and thoughtful growth.',
+    title: 'Digi InFusion | Full-Service Digital Agency',
+    description: 'A full-service digital agency focused on strategy, design, and growth for ambitious brands.',
     images: [{ url: '/assets/images/app_logo.png', width: 1200, height: 630 }],
   },
 };

@@ -8,9 +8,9 @@ import CTASection from '@/app/components/CTASection';
 
 const faqs = [
   {
-    question: 'What types of projects does DigitalBroom support?',
+    question: 'What types of projects does Digi InFusion support?',
     answer:
-      'DigitalBroom supports digital projects focused on strategy, design, web experiences, digital growth, and thoughtful execution for ambitious businesses.',
+      'Digi InFusion supports digital projects focused on strategy, design, web experiences, digital growth, and thoughtful execution for ambitious businesses.',
   },
   {
     question: 'How do we start a project?',
@@ -55,7 +55,7 @@ export default function FAQContent() {
             <h1
               className="font-display font-normal text-jet-ink mb-6"
               style={{
-                fontSize: 'clamp(2.5rem, 6vw, 4rem)',
+                fontSize: 'var(--text-page-heading)',
                 letterSpacing: '-0.025em',
                 lineHeight: 1.05,
               }}
@@ -67,7 +67,7 @@ export default function FAQContent() {
           </SectionReveal>
           <SectionReveal delay={140}>
             <p className="text-fog text-lg leading-relaxed max-w-xl">
-              A few practical answers about how DigitalBroom works, what we help with, and how to
+              A few practical answers about how Digi InFusion works, what we help with, and how to
               get started.
             </p>
           </SectionReveal>

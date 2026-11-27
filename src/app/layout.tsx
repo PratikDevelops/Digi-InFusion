@@ -24,8 +24,8 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'),
-  title: 'DigitalBroom | Digital Agency for Ambitious Brands',
-  description: 'DigitalBroom is a newly established digital agency helping businesses with strategy, design, development, and growth-focused digital experiences.',
+  title: 'Digi InFusion | Full-Service Digital Agency',
+  description: 'Digi InFusion helps ambitious brands grow through strategy, design, and digital experiences.',
   icons: {
     icon: [
       { url: '/favicon.ico', type: 'image/x-icon' }

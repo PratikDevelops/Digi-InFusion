@@ -28,7 +28,11 @@ export default function FeaturedWork() {
               <p className="section-label mb-3">Selected work</p>
               <h2
                 className="font-display font-normal text-jet-ink"
-                style={{ fontSize: 'clamp(1.75rem, 4vw, 2.5rem)', letterSpacing: '-0.025em', lineHeight: 1.1 }}
+                style={{
+                  fontSize: 'var(--text-section-heading)',
+                  letterSpacing: '-0.025em',
+                  lineHeight: 1.1,
+                }}
               >
                 Results we&apos;re proud of
               </h2>
@@ -48,7 +52,9 @@ export default function FeaturedWork() {
                 aria-label={`View project: ${item.title}`}
                 className="group block h-full cursor-pointer"
               >
-                <div className={`relative w-full overflow-hidden rounded-2xl bg-jet-ink/5 ${IMAGE_RATIO}`}>
+                <div
+                  className={`relative w-full overflow-hidden rounded-2xl bg-jet-ink/5 ${IMAGE_RATIO}`}
+                >
                   <AppImage
                     src={item.image || ''}
                     alt={item.alt || item.title || ''}
@@ -70,7 +76,9 @@ export default function FeaturedWork() {
                       </span>
                     ))}
                   </div>
-                  <h3 className="text-jet-ink font-medium text-lg leading-tight mb-2">{item.title}</h3>
+                  <h3 className="text-jet-ink font-medium text-lg leading-tight mb-2">
+                    {item.title}
+                  </h3>
                   <p className="text-jet-ink/60 text-sm">{item.result}</p>
                 </div>
               </Link>

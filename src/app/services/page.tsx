@@ -5,11 +5,11 @@ import Footer from '@/components/Footer';
 import ServicesOverviewContent from './components/ServicesOverviewContent';
 
 export const metadata: Metadata = {
-  title: 'Services | DigitalBroom',
-  description: 'Explore DigitalBroom services for web design, digital experiences, strategy, and delivery support.',
+  title: 'Services | Digi InFusion',
+  description: 'Explore Digi InFusion services for web design, digital experiences, strategy, and delivery support.',
   openGraph: {
-    title: 'Services | DigitalBroom',
-    description: 'A focused digital agency offering web design, strategy, digital experience, and growth support.',
+    title: 'Services | Digi InFusion',
+    description: 'A full-service digital agency offering web design, strategy, digital experience, and growth support.',
     images: [{ url: '/assets/images/app_logo.png', width: 1200, height: 630 }],
   },
 };

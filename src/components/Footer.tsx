@@ -1,7 +1,10 @@
 import React from 'react';
 import Link from 'next/link';
 import AppLogo from '@/components/ui/AppLogo';
-import Icon from '@/components/ui/AppIcon';
+
+const CONTACT_EMAIL = 'digiinfusion.contact@gmail.com';
+const CONTACT_PHONE_DISPLAY = '+91 89281 66954';
+const CONTACT_PHONE_HREF = 'tel:+918928166954';
 
 const footerLinks = {
   services: [
@@ -20,92 +23,173 @@ const footerLinks = {
     { label: 'FAQ', href: '/faq' },
     { label: 'Contact', href: '/contact' },
   ],
+  legal: [
+    { label: 'Privacy Policy', href: '/privacy-policy' },
+    { label: 'Terms & Conditions', href: '/terms-and-conditions' },
+    { label: 'Cookie Policy', href: '/cookie-policy' },
+    { label: 'Refund Policy', href: '/refund-policy' },
+    { label: 'Disclaimer', href: '/disclaimer' },
+  ],
 };
 
+// Dummy links: replace with your real profile URLs (same as the Contact page)
 const socialLinks = [
-  { icon: 'GlobeAltIcon', href: '/', label: 'Home' },
-  { icon: 'ChatBubbleLeftIcon', href: '/contact', label: 'Contact' },
-  { icon: 'VideoCameraIcon', href: '/work', label: 'Work' },
+  {
+    label: 'Instagram',
+    href: 'https://www.instagram.com/digiinfusion',
+    icon: (
+      <>
+        <rect x="3" y="3" width="18" height="18" rx="5" />
+        <circle cx="12" cy="12" r="4" />
+        <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" />
+      </>
+    ),
+  },
+  {
+    label: 'Facebook',
+    href: 'https://www.facebook.com/digiinfusion',
+    icon: <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />,
+  },
+  {
+    label: 'LinkedIn',
+    href: 'https://www.linkedin.com/company/digiinfusion',
+    icon: (
+      <>
+        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+        <rect x="2" y="9" width="4" height="12" />
+        <circle cx="4" cy="4" r="2" />
+      </>
+    ),
+  },
 ];
+
+const linkClass =
+  'inline-block py-0.5 text-fog hover:text-jet-ink text-sm font-medium transition-colors duration-150';
 
 export default function Footer() {
   return (
-    <footer className="bg-paper border-t border-dove pt-16 pb-8">
+    <footer className="bg-paper border-t border-dove pt-16 pb-8 md:pt-20">
       <div className="max-w-page mx-auto px-6">
         {/* Main footer grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+        <div className="grid grid-cols-2 gap-x-8 gap-y-12 mb-14 lg:grid-cols-[1.5fr_1fr_1fr_1fr] lg:gap-x-12">
           {/* Brand column */}
-          <div className="col-span-2 md:col-span-1">
-            <Link href="/" className="flex items-center gap-2 mb-4">
-              <AppLogo size={28} />
-              <span className="font-medium text-jet-ink text-base tracking-tight">DigitalBroom</span>
+          <div className="col-span-2 lg:col-span-1">
+            <Link href="/" className="inline-flex items-center gap-2 mb-4">
+              <AppLogo size={140} />
+              {/* <span className="font-medium text-jet-ink text-base tracking-tight">
+                Digi InFusion
+              </span> */}
             </Link>
-            <p className="text-fog text-sm leading-relaxed max-w-[200px]">
-              A growing digital agency focused on strategy, design, and digital experiences.
+            <p className="text-fog text-sm leading-relaxed max-w-[280px]">
+              A digital agency focused on strategy, design, and digital experiences.
             </p>
-            <div className="flex gap-3 mt-5">
-              {socialLinks.map((s) => (
+
+            <ul className="mt-5 flex flex-col gap-2">
+              <li>
                 <a
-                  key={s.label}
-                  href={s.href}
-                  aria-label={s.label}
-                  className="w-8 h-8 flex items-center justify-center rounded-full border border-dove text-fog hover:text-jet-ink hover:border-jet-ink transition-all duration-200"
+                  href={`mailto:${CONTACT_EMAIL}`}
+                  className="text-fog hover:text-jet-ink text-sm transition-colors duration-150 break-all"
                 >
-                  <Icon name={s.icon as any} size={14} />
+                  {CONTACT_EMAIL}
                 </a>
+              </li>
+              <li>
+                <a
+                  href={CONTACT_PHONE_HREF}
+                  className="text-fog hover:text-jet-ink text-sm transition-colors duration-150"
+                >
+                  {CONTACT_PHONE_DISPLAY}
+                </a>
+              </li>
+            </ul>
+
+            <ul className="flex items-center gap-3 mt-6">
+              {socialLinks.map((s) => (
+                <li key={s.label}>
+                  <a
+                    href={s.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={s.label}
+                    className="w-11 h-11 flex items-center justify-center rounded-full border border-dove text-fog hover:text-jet-ink hover:border-jet-ink transition-all duration-200"
+                  >
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      aria-hidden="true"
+                    >
+                      {s.icon}
+                    </svg>
+                  </a>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
 
           {/* Services */}
-          <div className="col-span-1">
-            <p className="section-label mb-4">Services</p>
-            <ul className="space-y-3">
-              {footerLinks.services.slice(0, 4).map((link) => (
+          <nav aria-label="Footer services" className="col-span-1">
+            <p className="section-label mb-5">Services</p>
+            <ul className="flex flex-col gap-3">
+              {footerLinks.services.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="text-fog hover:text-jet-ink text-sm font-medium transition-colors duration-150">
+                  <Link href={link.href} className={linkClass}>
                     {link.label}
                   </Link>
                 </li>
               ))}
             </ul>
-          </div>
-
-          <div className="col-span-1">
-            <p className="section-label mb-4 opacity-0">More</p>
-            <ul className="space-y-3">
-              {footerLinks.services.slice(4).map((link) => (
-                <li key={link.href}>
-                  <Link href={link.href} className="text-fog hover:text-jet-ink text-sm font-medium transition-colors duration-150">
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+          </nav>
 
           {/* Company */}
-          <div className="col-span-1">
-            <p className="section-label mb-4">Company</p>
-            <ul className="space-y-3">
+          <nav aria-label="Footer company" className="col-span-1">
+            <p className="section-label mb-5">Company</p>
+            <ul className="flex flex-col gap-3">
               {footerLinks.company.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="text-fog hover:text-jet-ink text-sm font-medium transition-colors duration-150">
+                  <Link href={link.href} className={linkClass}>
                     {link.label}
                   </Link>
                 </li>
               ))}
             </ul>
-          </div>
+          </nav>
+
+          {/* Legal */}
+          <nav aria-label="Footer legal" className="col-span-2 sm:col-span-1">
+            <p className="section-label mb-5">Legal</p>
+            <ul className="flex flex-col gap-3">
+              {footerLinks.legal.map((link) => (
+                <li key={link.href}>
+                  <Link href={link.href} className={linkClass}>
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
         </div>
 
         {/* Bottom bar */}
-        <div className="border-t border-dove pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-pewter text-sm">© 2026 DigitalBroom. All rights reserved.</p>
-          <div className="flex gap-6">
-            <Link href="/faq" className="text-pewter hover:text-jet-ink text-sm transition-colors duration-150">FAQ</Link>
-            <Link href="/contact" className="text-pewter hover:text-jet-ink text-sm transition-colors duration-150">Contact</Link>
-          </div>
+        <div className="border-t border-dove pt-6 md:pt-8 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+          <p className="text-pewter text-sm">© 2026 Digi InFusion. All rights reserved.</p>
+          <ul className="flex flex-wrap gap-x-6 gap-y-2">
+            {footerLinks.legal.slice(0, 3).map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className="text-pewter hover:text-jet-ink text-sm transition-colors duration-150"
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </footer>

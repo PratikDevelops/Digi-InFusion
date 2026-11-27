@@ -66,25 +66,25 @@ export default function AboutContent() {
       <section className="pt-32 pb-16 px-6 bg-paper">
         <div className="max-w-page mx-auto">
           <SectionReveal>
-            <p className="section-label mb-4">About DigitalBroom</p>
+            <p className="section-label mb-4">About Digi InFusion</p>
           </SectionReveal>
           <SectionReveal delay={80}>
             <h1
               className="font-display font-normal text-jet-ink mb-6"
               style={{
-                fontSize: 'clamp(2.5rem, 6vw, 4rem)',
+                fontSize: 'var(--text-page-heading)',
                 letterSpacing: '-0.025em',
                 lineHeight: 1.05,
               }}
             >
-              We make brands
+              Brands that
               <br />
               <span className="text-fog">impossible to ignore.</span>
             </h1>
           </SectionReveal>
           <SectionReveal delay={140}>
             <p className="text-fog text-lg leading-relaxed max-w-xl">
-              DigitalBroom is a newly established digital agency focused on thoughtful strategy,
+              We build digital experiences that help ambitious brands grow,
               digital experiences, and growth-minded execution for ambitious businesses.
             </p>
           </SectionReveal>
@@ -99,7 +99,7 @@ export default function AboutContent() {
                 <h2
                   className="font-display font-normal text-jet-ink mb-8"
                   style={{
-                    fontSize: 'clamp(1.75rem, 4vw, 2.5rem)',
+                    fontSize: 'var(--text-section-heading)',
                     letterSpacing: '-0.025em',
                     lineHeight: 1.1,
                   }}
@@ -108,7 +108,7 @@ export default function AboutContent() {
                 </h2>
                 <div className="space-y-5 text-steel text-base leading-relaxed">
                   <p>
-                    DigitalBroom was built for the kind of work that benefits from clarity,
+                    We focus on work that benefits from clarity,
                     intention, and a stronger digital presence. We focus on honest strategy and
                     thoughtful execution rather than inflated claims or generic agency language.
                   </p>
@@ -117,8 +117,7 @@ export default function AboutContent() {
                     audience, the business goal, and the message that needs to land with confidence.
                   </p>
                   <p>
-                    Our mission is simple: help ambitious businesses look more professional,
-                    communicate more clearly, and move forward with more confidence.
+                    Our mission is to help ambitious businesses look more professional, communicate more clearly, and move forward with confidence—every day.
                   </p>
                 </div>
               </SectionReveal>
@@ -220,7 +219,7 @@ export default function AboutContent() {
                 lineHeight: 1.1,
               }}
             >
-              A process built for real results.
+              A process built for real outcomes.
             </h2>
             <p className="text-fog text-base mb-14 max-w-xl">
               We focus on the work that matters and keep communication clear from start to finish.

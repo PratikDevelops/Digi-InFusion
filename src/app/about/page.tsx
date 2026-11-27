@@ -5,9 +5,9 @@ import Footer from '@/components/Footer';
 import AboutContent from './components/AboutContent';
 
 export const metadata: Metadata = {
-  title: 'About | DigitalBroom',
+  title: 'About | Digi InFusion',
   description:
-    'Learn about DigitalBroom, a newly established digital agency focused on strategy, design, and digital growth for ambitious brands.',
+    'Learn about Digi InFusion, a full-service digital agency helping ambitious brands grow through strategy, design, and digital experiences.',
 };
 
 export default function AboutPage() {

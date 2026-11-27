@@ -26,7 +26,7 @@ interface Props {
 
 export default function CaseStudyContent({ item }: Props) {
   const related = portfolioItems
-    .filter(p => p.id !== item.id && p.tags.some(t => item.tags.includes(t)))
+    .filter((p) => p.id !== item.id && p.tags.some((t) => item.tags.includes(t)))
     .slice(0, 2);
 
   return (
@@ -39,7 +39,11 @@ export default function CaseStudyContent({ item }: Props) {
               href="/work"
               className="inline-flex items-center gap-2 text-fog text-sm hover:text-jet-ink transition-colors duration-200 group"
             >
-              <Icon name="ArrowLeftIcon" size={14} className="group-hover:-translate-x-1 transition-transform duration-200" />
+              <Icon
+                name="ArrowLeftIcon"
+                size={14}
+                className="group-hover:-translate-x-1 transition-transform duration-200"
+              />
               All case studies
             </Link>
           </SectionReveal>
@@ -51,8 +55,10 @@ export default function CaseStudyContent({ item }: Props) {
         <div className="max-w-page mx-auto">
           <SectionReveal delay={60}>
             <div className="flex flex-wrap gap-2 mb-5">
-              {item.tags.map(tag => (
-                <span key={tag} className="tag-pill">{tagLabelMap[tag] || tag}</span>
+              {item.tags.map((tag) => (
+                <span key={tag} className="tag-pill">
+                  {tagLabelMap[tag] || tag}
+                </span>
               ))}
             </div>
           </SectionReveal>
@@ -60,7 +66,11 @@ export default function CaseStudyContent({ item }: Props) {
           <SectionReveal delay={100}>
             <h1
               className="font-display font-normal text-jet-ink mb-6"
-              style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', letterSpacing: '-0.025em', lineHeight: 1.05 }}
+              style={{
+                fontSize: 'var(--text-case-heading)',
+                letterSpacing: '-0.025em',
+                lineHeight: 1.05,
+              }}
             >
               {item.title}
             </h1>
@@ -70,18 +80,24 @@ export default function CaseStudyContent({ item }: Props) {
           <SectionReveal delay={140}>
             <div className="flex flex-wrap gap-6 mb-10 text-sm text-fog">
               <span className="flex items-center gap-2">
-                <span className="font-mono-custom text-pewter text-xs uppercase tracking-wider">Client</span>
+                <span className="font-mono-custom text-pewter text-xs uppercase tracking-wider">
+                  Client
+                </span>
                 <span className="text-jet-ink font-medium">{item.client}</span>
               </span>
               {item.year && (
                 <span className="flex items-center gap-2">
-                  <span className="font-mono-custom text-pewter text-xs uppercase tracking-wider">Year</span>
+                  <span className="font-mono-custom text-pewter text-xs uppercase tracking-wider">
+                    Year
+                  </span>
                   <span className="text-jet-ink font-medium">{item.year}</span>
                 </span>
               )}
               {item.duration && (
                 <span className="flex items-center gap-2">
-                  <span className="font-mono-custom text-pewter text-xs uppercase tracking-wider">Duration</span>
+                  <span className="font-mono-custom text-pewter text-xs uppercase tracking-wider">
+                    Duration
+                  </span>
                   <span className="text-jet-ink font-medium">{item.duration}</span>
                 </span>
               )}
@@ -90,7 +106,10 @@ export default function CaseStudyContent({ item }: Props) {
 
           {/* Hero image */}
           <SectionReveal delay={160}>
-            <div className="relative w-full rounded-2xl overflow-hidden" style={{ height: 'clamp(280px, 45vw, 520px)' }}>
+            <div
+              className="relative w-full rounded-2xl overflow-hidden"
+              style={{ height: 'clamp(280px, 45vw, 520px)' }}
+            >
               <AppImage
                 src={item.image}
                 alt={item.alt}
@@ -114,7 +133,11 @@ export default function CaseStudyContent({ item }: Props) {
                   <div className="text-center">
                     <p
                       className="font-display font-normal text-paper mb-1"
-                      style={{ fontSize: 'clamp(1.75rem, 3.5vw, 2.5rem)', letterSpacing: '-0.025em', lineHeight: 1 }}
+                      style={{
+                        fontSize: 'clamp(1.75rem, 3.5vw, 2.5rem)',
+                        letterSpacing: '-0.025em',
+                        lineHeight: 1,
+                      }}
                     >
                       {r.value}
                     </p>
@@ -159,7 +182,9 @@ export default function CaseStudyContent({ item }: Props) {
                       {item.approach.map((step, i) => (
                         <div key={i} className="flex items-start gap-4">
                           <div className="w-6 h-6 rounded-full bg-sand flex items-center justify-center shrink-0 mt-0.5">
-                            <span className="font-mono-custom text-jet-ink text-xs font-medium">{i + 1}</span>
+                            <span className="font-mono-custom text-jet-ink text-xs font-medium">
+                              {i + 1}
+                            </span>
                           </div>
                           <p className="text-fog text-base leading-relaxed">{step}</p>
                         </div>
@@ -174,7 +199,10 @@ export default function CaseStudyContent({ item }: Props) {
             <div className="lg:col-span-5 space-y-6">
               {/* Result highlight */}
               <SectionReveal delay={80}>
-                <div className="rounded-2xl bg-cream p-8" style={{ boxShadow: 'var(--shadow-subtle)' }}>
+                <div
+                  className="rounded-2xl bg-cream p-8"
+                  style={{ boxShadow: 'var(--shadow-subtle)' }}
+                >
                   <p className="section-label mb-4">Key result</p>
                   <p
                     className="font-display font-normal text-jet-ink leading-snug"
@@ -190,8 +218,10 @@ export default function CaseStudyContent({ item }: Props) {
                 <div className="rounded-2xl bg-sand p-8">
                   <p className="section-label mb-4">Services delivered</p>
                   <div className="flex flex-wrap gap-2">
-                    {item.tags.map(tag => (
-                      <span key={tag} className="tag-pill-dark">{tagLabelMap[tag] || tag}</span>
+                    {item.tags.map((tag) => (
+                      <span key={tag} className="tag-pill-dark">
+                        {tagLabelMap[tag] || tag}
+                      </span>
                     ))}
                   </div>
                 </div>
@@ -202,7 +232,11 @@ export default function CaseStudyContent({ item }: Props) {
                 <div className="rounded-2xl bg-jet-ink p-8 relative overflow-hidden">
                   <div
                     className="absolute top-0 right-0 w-40 h-40 rounded-full pointer-events-none opacity-25"
-                    style={{ background: 'radial-gradient(circle, #ff5f57 0%, transparent 70%)', filter: 'blur(40px)', transform: 'translate(30%, -30%)' }}
+                    style={{
+                      background: 'radial-gradient(circle, #ff5f57 0%, transparent 70%)',
+                      filter: 'blur(40px)',
+                      transform: 'translate(30%, -30%)',
+                    }}
                   />
                   <p className="text-paper font-medium mb-2" style={{ letterSpacing: '-0.015em' }}>
                     Want results like this?
@@ -231,7 +265,11 @@ export default function CaseStudyContent({ item }: Props) {
                   <p className="section-label mb-2">More work</p>
                   <h2
                     className="font-display font-normal text-jet-ink"
-                    style={{ fontSize: 'clamp(1.5rem, 3vw, 2rem)', letterSpacing: '-0.025em', lineHeight: 1.1 }}
+                    style={{
+                      fontSize: 'var(--text-detail-subheading)',
+                      letterSpacing: '-0.025em',
+                      lineHeight: 1.1,
+                    }}
                   >
                     Related case studies
                   </h2>
@@ -247,7 +285,10 @@ export default function CaseStudyContent({ item }: Props) {
               {related.map((rel, i) => (
                 <SectionReveal key={rel.id} delay={i * 80}>
                   <Link href={`/work/${rel.id}`} className="group block">
-                    <div className="rounded-2xl overflow-hidden bg-paper" style={{ boxShadow: 'var(--shadow-subtle)' }}>
+                    <div
+                      className="rounded-2xl overflow-hidden bg-paper"
+                      style={{ boxShadow: 'var(--shadow-subtle)' }}
+                    >
                       <div className="relative h-[200px] overflow-hidden">
                         <AppImage
                           src={rel.image}
@@ -259,11 +300,16 @@ export default function CaseStudyContent({ item }: Props) {
                       </div>
                       <div className="p-5">
                         <div className="flex flex-wrap gap-2 mb-2">
-                          {rel.tags.map(tag => (
-                            <span key={tag} className="tag-pill text-xs">{tagLabelMap[tag] || tag}</span>
+                          {rel.tags.map((tag) => (
+                            <span key={tag} className="tag-pill text-xs">
+                              {tagLabelMap[tag] || tag}
+                            </span>
                           ))}
                         </div>
-                        <h3 className="text-jet-ink font-medium text-base leading-snug mb-1" style={{ letterSpacing: '-0.015em' }}>
+                        <h3
+                          className="text-jet-ink font-medium text-base leading-snug mb-1"
+                          style={{ letterSpacing: '-0.015em' }}
+                        >
                           {rel.title}
                         </h3>
                         <p className="text-fog text-sm">{rel.result}</p>

@@ -10,11 +10,19 @@ export default function CTASection() {
         <SectionReveal>
           <div className="max-w-2xl">
             <p className="section-label text-fog mb-4">Ready to start?</p>
-            <h2 className="font-display font-normal text-paper mb-6" style={{ fontSize: 'clamp(1.75rem, 4vw, 3rem)', letterSpacing: '-0.025em', lineHeight: 1.05 }}>
+            <h2
+              className="font-display font-normal text-paper mb-6"
+              style={{
+                fontSize: 'var(--text-cta-heading)',
+                letterSpacing: '-0.025em',
+                lineHeight: 1.05,
+              }}
+            >
               Let&apos;s build something worth talking about.
             </h2>
             <p className="text-fog text-base leading-relaxed mb-8 max-w-lg">
-              Book a free 30-minute consultation. We&apos;ll review your current situation, identify the biggest opportunities, and outline exactly how we&apos;d approach your project.
+              Book a free 30-minute consultation. We&apos;ll review your current situation, identify
+              the biggest opportunities, and outline exactly how we&apos;d approach your project.
             </p>
             <div className="flex flex-col sm:flex-row gap-3">
               <Link
